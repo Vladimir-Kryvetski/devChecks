@@ -5,6 +5,9 @@ describe('Проверка тестового задания - форма авт
     it('Открыта домашняя страница', async function () {
         await HomePage.open();
     });
+    it('Открыта страница авторизации', async function () {
+        await LoginPage.loginPageLink.click();
+    });
     it('Проверить ввод валидного логина и невалидного password', async function () {
         await LoginPage.validLoginInvalidPass();
         await LoginPage.submitBtn.click();

@@ -2,6 +2,7 @@ const Page = require('./page.js');
 
 class LoginPage extends Page {
     //локаторы
+    get loginPageLink() {return $('//*[text() = "Do you have an account? Log in!"]')} //ссылка на стр. авторизации
     get loginField() {return $('//*[@id = "login"]')};
     get passwordField() {return $('//*[@id = "password"]')};
     get submitBtn() {return $('//*[@type = "submit"]')};

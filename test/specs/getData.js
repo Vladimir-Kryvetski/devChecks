@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const db = fs.readFileSync(path.resolve(__dirname, ''));
+const relativePath = '../../../htdocs/testMaternDzenis/vendor/db.json'; 
 
-console.log(db)
-
-
+const dataBase = fs.readFileSync(path.resolve(__dirname, relativePath))
+.toString();
+console.log(dataBase.match(/matern/g))

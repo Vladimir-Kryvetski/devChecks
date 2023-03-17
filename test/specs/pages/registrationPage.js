@@ -2,19 +2,14 @@ const Page = require('./page.js');
 class RegisterPage extends Page {
 
     //locators
-    get registerPageLink() {return $('//*[text() = "Зарегистрируйтесь"]')}; // ссылка на стр. регистрации
-    get loginField() {return $('//*[@id = "login"]')}; // поле логин
-    get passwordField() {return $('//*[@id = "password"]')}; // поле пароль
-    get confPasswordField() {return $('//*[@id = "password_confirm"]')}; // поле повторите пароль
-    get emailField() {return $('//*[@id = "email"]')}; // поле эл. адрес
-    get nameField() {return $('//*[@id = "name"]')}; // поле имя
+    get loginField() {return $('//*[@name = "login"]')}; // поле логин
+    get passwordField() {return $('//*[@name = "password"]')}; // поле пароль
+    get confPasswordField() {return $('//*[@name = "confirmpassword"]')}; // поле повторите пароль
+    get emailField() {return $('//*[@name = "email"]')}; // поле эл. адрес
+    get nameField() {return $('//*[@name = "username"]')}; // поле имя
     get registerButton() {return $('//*[@type = "submit"]')}; // кнопка "Зарегистрироваться"
 
     //actions
-    async open () {
-        await this.registerPageLink.click();
-    };
-
     async allDataValid () {
         await this.passwordField.setValue("tests1");
         await this.confPasswordField.setValue("tests1");

@@ -5,9 +5,6 @@ describe('Проверка тестового задания - форма рег
     it('Открыта домашняя страница', async function () {
         await HomePage.open();
     });
-    it('Открыта страница регистрации', async function () {
-        await RegisterPage.open();
-    });
     it('Все поля заполнены действительными данными', async function () {
         await RegisterPage.allDataValid();
     });
