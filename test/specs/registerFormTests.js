@@ -2,12 +2,23 @@ const HomePage = require ('./pages/homePage.js');
 const RegisterPage = require('./pages/registrationPage.js');
 
 describe('Проверка тестового задания - форма регистрации', function () {
+   // This code will run before each test case and it prevent redirection to the new page after successful registration
+   beforeEach(() => {
+     browser.url('http://hr2test.dev-bitrix.by/');
+     let button = $('//*[@type = "submit"]');
+       browser.execute((el) => {
+         el.addEventListener('click', (e) => {
+         e.preventDefault();
+         window.location.href = window.location.href;
+         });
+       }, button);
+ });
     it('Открыта домашняя страница', async function () {
         await HomePage.open();
     });
     it('Все поля заполнены действительными данными', async function () {
         await RegisterPage.allDataValid();
-    });
+     });
     it("Проверить обязательность всех полей", async() => {
         await RegisterPage.registerButton.click();
     });
@@ -19,25 +30,25 @@ describe('Проверка тестового задания - форма рег
        await RegisterPage.loginLess6char();
        await RegisterPage.registerButton.click();
     });
-    it("Проверить ввод логина с пробелами между/в начале /в конце символов", async() => {
-        await RegisterPage.spacesInLogin();
-     });
-     it("Проверить отправку формы уже зарегистрированного логина в БД", async() => {
-        await RegisterPage.notUniqueLogin();
-        await RegisterPage.registerButton.click();
-     });
-     it("Оставить поле пароль пустым", async() => {
-        await RegisterPage.emptyPassword();
-        await RegisterPage.registerButton.click();
-     });
-     it("Проверить валидность длины пароля (мин 6 символов)", async() => {
-        await RegisterPage.passwordLess6char();
-        await RegisterPage.registerButton.click();
-     });
-     it("Проверить ввод валидного пароля (*цифры + буквы)", async() => {
-        await RegisterPage.passwordOnlyLetters();
-        await RegisterPage.registerButton.click();
-     });
+   it("Проверить ввод логина с пробелами между/в начале /в конце символов", async() => {
+      await RegisterPage.spacesInLogin();
+   });
+   it("Проверить отправку формы уже зарегистрированного логина в БД", async() => {
+      await RegisterPage.notUniqueLogin();
+      await RegisterPage.registerButton.click();
+   });
+   it("Оставить поле пароль пустым", async() => {
+      await RegisterPage.emptyPassword();
+      await RegisterPage.registerButton.click();
+   });
+   it("Проверить валидность длины пароля (мин 6 символов)", async() => {
+      await RegisterPage.passwordLess6char();
+      await RegisterPage.registerButton.click();
+   });
+   it("Проверить ввод валидного пароля (*цифры + буквы)", async() => {
+      await RegisterPage.passwordOnlyLetters();
+      await RegisterPage.registerButton.click();
+   });
      it("Проверить ввод пароля с пробелом между/ в начале / в конце / символов", async() => {
         await RegisterPage.spacesInPassword();
      });
