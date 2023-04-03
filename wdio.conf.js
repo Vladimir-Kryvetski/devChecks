@@ -23,6 +23,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
+        // ToDo: define location for spec files here
         //'./test/specs/**/*.js',
         //'./test/specs/**/LoginFormTests.js',
         './test/specs/**/registerFormTests.js',
@@ -74,7 +75,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'error',
+    logLevel: 'info',
     //
     // Set specific log levels per logger
     // loggers:
@@ -145,7 +146,7 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000,
+        timeout: 60000
     },
     //
     // =====
