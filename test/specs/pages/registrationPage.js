@@ -164,6 +164,49 @@ class RegisterPage extends Page {
         await this.confPasswordField.setValue("tests1");
         await this.emailField.setValue("user777@mail.ru");
     };
+    ////////////////////////////////////////////////////////////////////////////////////////////Поле имя
+    async emptyName() {
+        await this.nameField.setValue("");
+        await this.loginField.setValue("iiiiiiooo");
+        await this.passwordField.setValue("tests1");
+        await this.confPasswordField.setValue("tests1");
+        await this.emailField.setValue("useriiiiiiooo@mail.ru");
+    };
+
+    async nameLess2char() {
+        await this.nameField.setValue("g");
+        await this.loginField.setValue("kkkkkiiiiii");
+        await this.passwordField.setValue("tests1");
+        await this.confPasswordField.setValue("tests1");
+        await this.emailField.setValue("userkkkkkiiiiii@mail.ru");
+    };
+
+    async nameSpaceBetween() {
+        await this.nameField.setValue("g g");
+        await this.loginField.setValue("cccccxxx");
+        await this.confPasswordField.setValue("tests1");
+        await this.emailField.setValue("usercccccxxx@mail.ru");
+    };
+    async nameSpaceBefore() {
+        await this.nameField.setValue("  gg");
+        await this.loginField.setValue("wwwvvvw");
+        await this.confPasswordField.setValue("tests1");
+        await this.emailField.setValue("userwwwvvvw@mail.ru");
+    };
+
+    async nameSpaceAfter() {
+        await this.nameField.setValue("gg  ");
+        await this.loginField.setValue("sssqqqss");
+        await this.confPasswordField.setValue("tests1");
+        await this.emailField.setValue("usersssqqqss@mail.ru");
+    };
+
+    async nameOnlySpaces() {
+        await this.nameField.setValue("   ");
+        await this.loginField.setValue("qqqmmmm");
+        await this.confPasswordField.setValue("tests1");
+        await this.emailField.setValue("userqqqmmmm@mail.ru");
+    };
 
 }
 

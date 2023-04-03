@@ -88,6 +88,31 @@ describe('Проверка тестового задания - форма рег
         await RegisterPage.emailNotUnique();
         await RegisterPage.registerButton.click();
      });
+     it("Оставить поле имя незаполненным и отправить форму", async() => {
+      await RegisterPage.emptyName();
+      await RegisterPage.registerButton.click();
+   });
+   it("Проверить валидность длины имени (мин 2 символа)", async() => {
+      await RegisterPage.nameLess2char();
+      await RegisterPage.registerButton.click();
+   });
+   it("Проверить ввод имени с пробелами между букв", async() => {
+      await RegisterPage.nameSpaceBetween();
+      await RegisterPage.registerButton.click();
+   });
+   it("Проверить ввод имени с пробелами в начале букв", async() => {
+      await RegisterPage.nameSpaceBefore();
+      await RegisterPage.registerButton.click();
+   });
+   it("Проверить ввод имени с пробелами в конце букв", async() => {
+      await RegisterPage.nameSpaceAfter();
+      await RegisterPage.registerButton.click();
+   });
+   it("Проверить ввод имени только из пробелов", async() => {
+      await RegisterPage.nameSpaceAfter();
+      await RegisterPage.registerButton.click();
+   });
+
 });
 
 
